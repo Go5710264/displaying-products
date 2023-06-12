@@ -5,18 +5,21 @@ import IconSwicth from "./IconSwitch";
 class Store extends Component {
     constructor(props){
         super(props); // товары
-        // this.state={ iconView: 'icon' }// иконки/список
+        this.state={ iconView: 'view_icon' }// иконки/список
         this.products = props.icon; // объект с кросовками
     }
 
     render() {
         return(
-            <div>
-                <IconSwicth />
+            <>
+                <IconSwicth 
+                    icon={this.state} 
+                    onSwitch={(icon)=>this.setState({iconView: icon})}
+                />
                 <main className="product-board">
                     {this.products.map(item => <CardsView products={item}/>)}
                 </main>
-            </div>
+            </>
         )
     }
 

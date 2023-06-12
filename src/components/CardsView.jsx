@@ -1,6 +1,6 @@
 const CardsView = (props) => {
     const {products} = props;
-    console.log(products)
+    // console.log(products)
     return (
         <li className="product-position-icon" >
             <h2>{products.name}</h2>
