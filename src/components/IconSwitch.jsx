@@ -1,22 +1,25 @@
 import viewList from '../assets/view_list.svg'
+import viewModule from '../assets/view_module.svg'
+
+import PropTypes from 'prop-types'
+
 const IconSwicth = (props) => {
     const { icon, onSwitch } = props;
-    console.log(icon)
 
-
-
-    // return <button className='btn' onClick={() => props.onSwitch(props.icon)}> Сменить интерфейс </button>
     return (
-        <div className="botton-wrapper">
-            <button className='botton' onClick={() => switching(icon.iconView)}> <img src={viewList}/> </button>
+        <div className="button-wrapper">
+            <button className='button' onClick={() => onSwitch(icon.iconView === 'view_module' ? 'view_list' : 'view_module')}> 
+                <img className='button-icon' src={icon.iconView === 'view_module' ? viewList : viewModule}/> 
+            </button>
         </div>
        
     )
 
 }
 
-const switching = (value) => {
-    console.log(value);
-};
+IconSwicth.propTypes = {
+    icon: PropTypes.object,
+    onSwitch: PropTypes.func
+}
 
 export default IconSwicth;
